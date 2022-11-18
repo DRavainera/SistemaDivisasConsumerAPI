@@ -1,0 +1,31 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+<br />
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Iniciar sesión</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="Login" asp-controller="Home" method="post">
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Usuario</label>
+                <input asp-for="Usuario" type="text" class="form-control" name="usuario" required />
+                <span asp-validation-for="Usuario" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 input-group">
+                <label class="form-label input-group-text">Contraseña</label>
+                <input asp-for="Contrasenia" type="password" class="form-control" name="contrasenia" required />
+                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Iniciar sesion</button>
+        </form>
+    </div>
+</div>

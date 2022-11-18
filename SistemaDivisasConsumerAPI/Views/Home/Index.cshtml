@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Cuentas en Pesos</h5>
+    </div>
+    <div class="card-body">
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>CBU</th>
+                    <th>Alias CBU</th>
+                    <th>Saldo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.CuentasPeso)
+                {
+                    <tr>
+                        <td>@item.NumCuenta</td>
+                        <td>@item.CBU</td>
+                        <td>@item.AliasCBU</td>
+                        <td>$@item.Saldo</td>
+                        <td><a class="btn btn-outline-primary" asp-action="VerRegistroMovimientos" asp-controller="Home" asp-route-numCuenta=@item.NumCuenta>Ver movimientos</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-header">
+        <h5>Cuentas en Dolares</h5>
+    </div>
+    <div class="card-body">
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>CBU</th>
+                    <th>Alias CBU</th>
+                    <th>Saldo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.CuentasDolar)
+                {
+                    <tr>
+                        <td>@item.NumCuenta</td>
+                        <td>@item.CBU</td>
+                        <td>@item.AliasCBU</td>
+                        <td>$@item.Saldo</td>
+                        <td><a class="btn btn-outline-primary" asp-action="VerRegistroMovimientos" asp-controller="Home" asp-route-numCuenta=@item.NumCuenta>Ver movimientos</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-header">
+        <h5>Cuentas en Bitcoin</h5>
+    </div>
+    <div class="card-body">
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>UUID</th>
+                    <th>Saldo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.CuentasCripto)
+                {
+                    <tr>
+                        <td>@item.UUID</td>
+                        <td>@item.Saldo BTC</td>
+                        <td><a class="btn btn-outline-primary" asp-action="VerRegistroMovimientos" asp-controller="Home" asp-route-numCuenta=@item.UUID>Ver movimientos</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

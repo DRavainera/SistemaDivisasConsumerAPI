@@ -1,0 +1,33 @@
+﻿@model List<Movimiento>
+@{
+    ViewData["Title"] = "VerRegistroMovimientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5>Movimientos</h5>
+    </div>
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="Home">Volver</a><br /><br />
+    <div class="card-body">
+        <table class="table d-lg-table table-responsive table-hover" align="center">
+            <thead>
+                <tr>
+                    <th>Numero de cuenta</th>
+                    <th>Fecha y Hora</th>
+                    <th>Movimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumCuenta</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
